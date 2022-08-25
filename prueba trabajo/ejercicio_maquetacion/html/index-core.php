@@ -583,7 +583,7 @@
                                     <% } %> -->
 
                                     <?php
-                                    echo '<p>HOla</p>';
+
                                     ?>
                                     <script language="php">
                                         echo "algo";

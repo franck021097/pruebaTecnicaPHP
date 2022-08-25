@@ -19,7 +19,7 @@ if (isset($_POST['enviar'])) {
         $apellidoM = trim($_POST['apellido_materno']);
         $genero = trim($_POST['genero']);
         
-        $consulta1 = "INSERT INTO romper.datospersonales (nombre, apellido_paterno, apellido_materno, genero) VALUES($name, $apellidoP, $apellidoM, $genero)";
+        $consulta1 = "INSERT INTO romper.datospersonales (nombre, apellido_paterno, apellido_materno, genero) VALUES('$name', '$apellidoP','$apellidoM', '$genero')";
         
         $resultado1 = mysqli_query($conectar, $consulta1);
         echo "llego";
@@ -28,7 +28,7 @@ if (isset($_POST['enviar'])) {
     $tipo = trim($_POST['tipo']);
     $rfc = trim($_POST['rfc']);
     
-    $consulta2 = "INSERT INTO romper.razon_social (tipo, rfc, clienteId) VALUES($tipo, $rfc, $KF)";
+    $consulta2 = "INSERT INTO romper.razon_social (tipo, rfc, clienteId) VALUES('$tipo', '$rfc', $KF)";
     
     $resultado2 = mysqli_query($conectar, $consulta2);
     // datos generales
@@ -37,9 +37,10 @@ if (isset($_POST['enviar'])) {
     $celular = trim($_POST['celular']);
     $CP = trim($_POST['CP']);
     
-    $consulta3 = "INSERT INTO romper.datos_generales (email, celular, CP, idDP) VALUES($email, $celular, $CP, $KF)";
+    $consulta3 = "INSERT INTO romper.datos_generales (email, celular, CP, idDP) VALUES('$email', $celular, $CP, $KF)";
     $resultado3 = mysqli_query($conectar, $consulta3);
 
+    var_dump($consulta3);
     echo "Envio exitoso";
     }
 } else {
