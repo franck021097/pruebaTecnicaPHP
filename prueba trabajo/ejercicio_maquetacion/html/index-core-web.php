@@ -553,7 +553,25 @@
                             <td class="rojo" style="font-size:14px; font-family:Helvetica,Arial,sans-serif; color:#010101; background:#b1b1b1; padding: 25px 45px 15px; text-align:center; -webkit-font-smoothing: antialiased;">
                                 <strong style="text-transform: capitalize; font-size: 16px;">
 
-                                    Hola <span id="name"><%= ExtData.nombre %></span>.
+                                    Hola <span id="name">
+                                    <?php
+                                    
+                                    // include("../respuesta.php");
+
+                                    include("../../Base_de_datos/con_db.php");
+                                    if($conectar) {
+                                        $consulta = "SELECT * from datospersonales";
+                                        $resultado = mysqli_query($conectar, $consulta);
+
+                                        $usuario = $resultado->fetch_array();
+                                        $nombre = $usuario['nombre'];
+                                        ?> <?php echo $nombre; ?>
+                                        <?php
+                                    }else{
+                                        echo "fallo";
+                                    }
+                                    ?>
+                                    </span>.
 
 
                                 </strong>
@@ -744,7 +762,25 @@
                         <td align="center" style="font-size: 9px; font-family: Helvetica, Arial, sans-serif;color: #5b5b5b; line-height: 14px; padding: 15px 25px 0px 25px;">
                             <p>
                                 <b>Este mensaje fue enviado a <a href="#" id="sendTo"
-                                        style="color: #5b5b5b; font-size: 9px; font-family: Verdana; text-decoration: none;"><%= ExtData.email %></a>
+                                        style="color: #5b5b5b; font-size: 9px; font-family: Verdana; text-decoration: none;">
+                                        <?php
+                                    
+                                        // include("../respuesta.php");
+    
+                                        include("../../Base_de_datos/con_db.php");
+                                        if($conectar) {
+                                            $consulta = "SELECT * from datos_generales";
+                                            $resultado = mysqli_query($conectar, $consulta);
+    
+                                            $direccion = $resultado->fetch_array();
+                                            $correo = $direccion['email'];
+                                            ?><?php echo $correo; ?>
+                                            <?php
+                                        }else{
+                                            echo "fallo";
+                                        }
+                                        ?>
+                                    </a>
                                     por Nissan Mexicana, S.A. de C.V.</b> <br>
                                     Agrega esta dirección a tu lista de contactos para evitar que nuestros correos sean guardados en la bandeja de correo no deseado.
                             </p>
