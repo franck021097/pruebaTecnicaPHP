@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    user-select: none;
+    background-color: #B3B3B3;
+}
+
+.logo {
+    width: 100%;
+}
+
+.logo img {
+    width: 100%;
+}
+
+h1 {
+    font-size: 2.9rem;
+}
+
+.registro {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+    max-width: 419px;
+    margin: 5rem auto;
+    /* background-color: #a9a9a9; */
+}
+
+form {
+    width: 100%;
+}
+
+
+form div {
+    margin-bottom: 10px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form label span {
+    font-weight: 700;
+    font-size: 15px;
+}
+
+input {
+    border: solid 1px #f3f3f3;
+    background-color: #f3f3f4;
+    color: #000;
+    height: 40px;
+    padding: 20px;
+    outline: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, border 2s;
+}
+
+.personales input {
+    text-transform: capitalize;
+}
+
+#rfc {
+    text-transform: uppercase;
+}
+
+input:hover, input:focus {
+    background-color: white;
+    border: solid 1px #8b8b8b;
+}
+
+select {
+    height: 5rem;
+    border: none;
+    background-color: #f3f3f4;
+    padding: 15px;
+}
+
+.razonSocial {
+    margin: 5rem 0;
+}
+
+.checkbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+input[type="radio"]:hover, input[type="radio"]:focus {
+    background-color: #f3f3f4;
+    border: none;
+}
+
+
+.listo-btn {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: #C40030;
+    color: white;
+    font-weight: 300;
+    font-size: 14px;
+    box-shadow: 0 2px 5px #a9a9a9;
+}
+
+.listo-btn::after {
+    content: "Vamos";
+}
+
+.listo-btn:hover {
+    opacity: 0.8;
+    box-shadow: none;
+    transition: opacity 0.2s;
+}
+
+.listo-btn:active{
+    opacity: 1;
+    background-color: rgb(3, 153, 3);
+    transition: opacity 0.01s;
+}
+
+.listo-btn:active::after {
+    content: "¡Listo!";
+}
+
+.inicio {
+    display: flex;
+    place-self: end;
+}
+
+footer {
+    text-align: center;
+}
+
+@media (max-width: 450px) {
+    .registro {
+        margin: 1.6rem;
+    }
+    .names{
+        flex-direction: column;
+    }
+    #username {
+        place-self: start;
+        width: 100%;
+    }
+
+    footer {
+        font-size: 1rem;
+    }
+
+}
+
+@media (max-width: 310px) {
+    h1 {
+        font-size: 2rem;
+    }
+    .checkbox {
+        flex-direction: column;
+    }
+
+}
