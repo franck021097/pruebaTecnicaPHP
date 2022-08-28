@@ -25,13 +25,13 @@ DROP TABLE IF EXISTS `datos_generales`;
 CREATE TABLE `datos_generales` (
   `idDG` int NOT NULL AUTO_INCREMENT,
   `email` varchar(50) NOT NULL,
-  `celular` int NOT NULL,
+  `celular` decimal(10,0) NOT NULL,
   `CP` int NOT NULL,
   `idDP` int NOT NULL,
   PRIMARY KEY (`idDG`),
   KEY `idDP` (`idDP`),
   CONSTRAINT `id_FK` FOREIGN KEY (`idDP`) REFERENCES `datospersonales` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `datos_generales` (
 
 LOCK TABLES `datos_generales` WRITE;
 /*!40000 ALTER TABLE `datos_generales` DISABLE KEYS */;
-INSERT INTO `datos_generales` VALUES (1,'franck_021097@hotmail.com',561066382,55060,1),(2,'ejemplo@hotmail.com',555555,6000,2),(3,'ejemplo@gmail.com',55455612,6100,3);
+INSERT INTO `datos_generales` VALUES (34,'u2zZw4/c+Cw93lc33VuH6Ram9jprHA8dSD/LDvFk1j8=',5610663821,6000,43),(35,'vUXH1qPPnTo0CLYVeopM2E+XPfbKMG+5xWMO3HhmhMQ=',5610663821,6000,44);
 /*!40000 ALTER TABLE `datos_generales` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -57,8 +57,9 @@ CREATE TABLE `datospersonales` (
   `apellido_paterno` varchar(40) NOT NULL,
   `apellido_materno` varchar(40) NOT NULL,
   `genero` varchar(6) NOT NULL,
+  `vector` varbinary(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,7 +68,7 @@ CREATE TABLE `datospersonales` (
 
 LOCK TABLES `datospersonales` WRITE;
 /*!40000 ALTER TABLE `datospersonales` DISABLE KEYS */;
-INSERT INTO `datospersonales` VALUES (1,'Francisco Javier','Castro','Alcantar','Hombre'),(2,'William','Henry','Gates III','Hombre'),(3,'Elon','Reeve','Musk','Hombre');
+INSERT INTO `datospersonales` VALUES (42,'jW8Tx0tl9H8w038B38zWiQ==','Paterno','Materno','Hombre',_binary 'Öyj\Ù\„JmåGü˙\Ò	¯'),(43,'kcZYkuSWeWotdUcUb4N4PGBCt0IN7wfXEb0SyB+g00k=','castro','alcantar','Hombre',_binary '\ÔáRçtáNaVÑíŸ≠\ı'),(44,'aJ5SU/TwDu/+7scyzplBsQ==','castro','sanchez','Hombre',_binary '¶\≈\Õ\‰)\Û\‡ÄùAﬂ±\ [\≈');
 /*!40000 ALTER TABLE `datospersonales` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -86,7 +87,7 @@ CREATE TABLE `razon_social` (
   PRIMARY KEY (`id`),
   KEY `clienteId` (`clienteId`),
   CONSTRAINT `cliente_FK` FOREIGN KEY (`clienteId`) REFERENCES `datospersonales` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,7 +96,7 @@ CREATE TABLE `razon_social` (
 
 LOCK TABLES `razon_social` WRITE;
 /*!40000 ALTER TABLE `razon_social` DISABLE KEYS */;
-INSERT INTO `razon_social` VALUES (1,'fisica','ceet252525nes',1),(2,'fisica','elon280771',2),(3,'fisica','gate281055',3);
+INSERT INTO `razon_social` VALUES (42,'on','NESCAFE',43),(43,'on','NESCAFE',44);
 /*!40000 ALTER TABLE `razon_social` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -112,4 +113,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-25  1:41:37
+-- Dump completed on 2022-08-28 11:57:09
