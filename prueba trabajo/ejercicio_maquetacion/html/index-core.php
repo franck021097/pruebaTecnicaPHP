@@ -591,13 +591,22 @@
                                         $consulta = "SELECT * from datospersonales";
                                         $resultado = mysqli_query($conectar, $consulta);
 
-                                        $usuario = $resultado->fetch_array();
+                                        $KEY = "adriadna";
+                                        
+
+                                        while($usuario = $resultado->fetch_array() ){
+                                        $vector = $usuario['vector'];
                                         $nombre = $usuario['nombre'];
+                                        }
+
+                                        $nombre_descifrado = openssl_decrypt($nombre,'AES-256-CBC',$KEY,0,$vector);
+                                        
                                         ?>
                                         <div>
-                                            <h3>Hola <?php echo $nombre; ?></h3>
+                                            <h3>Hola <?php echo $nombre_descifrado; ?></h3>
                                         </div>
                                         <?php
+                                        
                                     }else{
                                         echo "fallo";
                                     }
@@ -797,12 +806,28 @@
 
                                     include("../../Base_de_datos/con_db.php");
                                     if($conectar) {
-                                        $consulta = "SELECT * from datos_generales";
-                                        $resultado = mysqli_query($conectar, $consulta);
 
-                                        $direccion = $resultado->fetch_array();
-                                        $correo = $direccion['email'];
-                                        ?><?php echo $correo; ?>
+                                        $consulta1 = "SELECT * from datospersonales";
+                                        $resultado1 = mysqli_query($conectar, $consulta);
+
+                                        $consulta2 = "SELECT * from datos_generales";
+                                        $resultado2 = mysqli_query($conectar, $consulta2);
+    
+                                        $KEY = "adriadna";
+                                            
+                                        while($usuario = $resultado->fetch_array() ){
+                                        $vector = $usuario['vector'];
+                                        }
+    
+                                        $nombre_descifrado = openssl_decrypt($nombre,'AES-256-CBC',$KEY,0,$vector);
+                                        
+                                        while($usuario = $resultado2->fetch_array() ){
+                                            $email = $usuario['email'];
+                                        }
+                                        
+                                        $email_descifrado = openssl_decrypt($email,'AES-256-CBC',$KEY,0,$vector);
+
+                                        ?><?php echo $email_descifrado; ?>
                                         <?php
                                     }else{
                                         echo "fallo";

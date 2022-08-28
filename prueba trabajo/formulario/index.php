@@ -77,7 +77,7 @@
                 <div>
                     <label for="email">
                         <span> Email </span>
-                        <input name="email" type="email" id="email" placeholder="ejemplo@ejemplo.com" required />
+                        <input name="email" type="text" id="email" placeholder="ejemplo@ejemplo.com" required />
                     </label>
                 </div>
                 <div>
